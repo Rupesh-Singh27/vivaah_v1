@@ -53,7 +53,7 @@ public class PhotographyServiceImpl implements PhotographyService{
 	@Override
 	public List<Photography> findByName(String photographyName) {
 		try {
-			List<Photography> listOfPhotographyWithSameName = photographyRepository.findByCatererName(photographyName);
+			List<Photography> listOfPhotographyWithSameName = photographyRepository.findByPhotographyName(photographyName);
 			if(listOfPhotographyWithSameName.isEmpty()) {
 				throw new NoPhotographyPresentException("No Photographer with the name " + photographyName + " is the database!!!");
 			}

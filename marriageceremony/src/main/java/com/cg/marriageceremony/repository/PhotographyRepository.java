@@ -11,5 +11,5 @@ import com.cg.marriageceremony.model.Photography;
 
 public interface PhotographyRepository extends JpaRepository<Photography, Integer>{
 
-	List<Photography> findByCatererName(String photographyName);
+	List<Photography> findByPhotographyName(String photographyName);
 }

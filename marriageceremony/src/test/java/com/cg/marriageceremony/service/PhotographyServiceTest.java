@@ -87,7 +87,7 @@ class PhotographyServiceTest {
 		
 		Mockito.when(photographyRepository.findAll()).thenReturn(photographyList);
 		
-		List<Photography> photographyListReturnedFromphotographyService = photographyService.allPhotography();
+		List<Photography> photographyListReturnedFromphotographyService = photographyService.getAllPhotography();
 		
 		assertNotNull(photographyList);
 		assertNotNull(photographyListReturnedFromphotographyService);
@@ -117,7 +117,7 @@ class PhotographyServiceTest {
 		
 		Mockito.when(photographyRepository.findAll()).thenThrow(NoPhotographyPresentException.class);
 		
-		assertThrows(NoPhotographyPresentException.class, () -> photographyService.allPhotography());
+		assertThrows(NoPhotographyPresentException.class, () -> photographyService.getAllPhotography());
 		
 	}
 	

@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "caterer_name")
+@Table(name = "caterer_table")
 public class Caterer extends Vendor {
 	
 	@NotBlank(message="Name cannot be left blank")

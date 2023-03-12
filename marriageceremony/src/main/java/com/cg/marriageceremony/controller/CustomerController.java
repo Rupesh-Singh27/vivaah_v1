@@ -14,8 +14,6 @@ import com.cg.marriageceremony.secure.model.UserDto;
 import com.cg.marriageceremony.secure.service.JwtUserDetailsService;
 import com.cg.marriageceremony.service.CustomerService;
 
-import io.swagger.annotations.ApiOperation;
-
 @RestController
 @RequestMapping("/marriageceremony")
 
@@ -26,7 +24,6 @@ public class CustomerController {
 	@Autowired
 	private JwtUserDetailsService jwtUserDetailsService;
 
-	@ApiOperation("Will add customer in database")
 	@PostMapping("customer/addCustomer")
 	public Customer addCustomer(@RequestBody UserDto userDto) {
 
@@ -47,7 +44,6 @@ public class CustomerController {
 		return customer;
 	}
 
-	@ApiOperation("Will fetch all the customers from database")
 	@GetMapping("customer/findAllCustomer")
 	public List<Customer> findallcustomer() {
 		return customerService.allCustomers();

@@ -57,7 +57,9 @@ public class CatererServiceImpl implements CatererService{
 			if(listOfCatererWithSameName.isEmpty()) {
 				throw new NoCatererPresentException("No Caterer with the name " + catererName + " is the database!!!");
 			}
+			
 			return listOfCatererWithSameName;
+			
 		}catch (NoCatererPresentException exception) {
 			throw exception;
 		}catch (RuntimeException exception) {

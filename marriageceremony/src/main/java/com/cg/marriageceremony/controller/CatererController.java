@@ -24,8 +24,11 @@ import com.cg.marriageceremony.model.Caterer;
 import com.cg.marriageceremony.service.CatererService;
 import com.cg.marriageceremony.service.MapValidationErrorService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/marriageceremony")
+@SecurityRequirement(name = "Vivaah")
 @CrossOrigin(origins = "http://localhost:3000",methods = {RequestMethod.PUT,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.POST})
 public class CatererController {
 		
@@ -40,7 +43,7 @@ public class CatererController {
 	@PostMapping("caterer/addCaterer")
 	public ResponseEntity<?> addCaterer(@Valid @RequestBody Caterer catarer, BindingResult bindingResult) {
 		
-		logger.info("Inside Controller class: Request for adding caterer");
+		logger.info("Inside Controller class: Request for adding caterer into the database");
 		
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(bindingResult);
 		if (errorMap != null) {

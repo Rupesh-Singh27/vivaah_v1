@@ -11,17 +11,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cg.marriageceremony.exceptions.CatererDoesNotExistException;
-import com.cg.marriageceremony.exceptions.FieldCannotBeEmptyException;
 import com.cg.marriageceremony.exceptions.FieldCannotBeEmptyExceptionForVendor;
-import com.cg.marriageceremony.exceptions.NoCatererPresentException;
 import com.cg.marriageceremony.exceptions.NoVendorPresentException;
 import com.cg.marriageceremony.exceptions.VendorDoesNotExistException;
-import com.cg.marriageceremony.model.Caterer;
 import com.cg.marriageceremony.model.Vendor;
 import com.cg.marriageceremony.repository.VendorRepository;
-
-import io.swagger.annotations.ApiOperation;
 
 @Component
 public class VendorServiceImpl implements VendorService {

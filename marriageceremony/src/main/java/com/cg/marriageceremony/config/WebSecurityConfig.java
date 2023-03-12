@@ -20,15 +20,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private static final String[] AUTH_WHITELIST = {
-			// -- Swagger UI v2
-			"/v2/api-docs", "/swagger-resources", "/swagger-resources/**", "/configuration/ui",
-			"/configuration/security", "/swagger-ui.html", "/webjars/**", "/**",
-			// -- Swagger UI v3 (OpenAPI)
-			"/v3/api-docs/**", "/swagger-ui/**", 
-			// other public endpoints of your API may be appended to this array
-	};
-
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
@@ -61,19 +52,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		System.out.println("---Web security -- configure");
 		
-		httpSecurity.
-        // ... here goes your custom security configuration
-        authorizeRequests().
-        antMatchers(AUTH_WHITELIST).permitAll().  // whitelist Swagger UI resources
-        // ... here goes your custom security configuration
-        antMatchers("/**").authenticated();  // require authentication for any endpoint that's not whitelisted
-
 		
 		// httpSecurity.cors().disable();
 		// We don't need CSRF for this example
 		httpSecurity.cors().and().csrf().disable()
 				// dont authenticate this particular request
-//				.authorizeRequests().antMatchers("/login", "/register", "/marriageceremony/add-customers").permitAll().
+//				.authorizeRequests().antMatchers("/login", "/register", "/marriageceremony/add-customers", "/v3/api-docs/**", "/swagger-ui/**").permitAll().
 				 .authorizeRequests().antMatchers("/**").permitAll().
 				// all other requests need to be authenticated
 				anyRequest().authenticated().and().

@@ -1,44 +1,50 @@
 package com.cg.marriageceremony.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "photography_table")
 public class Photography extends Vendor {
-	private String pName;
-	private String pDiscription;
+	
+	private String photographyName;
+	private String photographyDescription;
 	private String imagepath;
 	
 	public Photography() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Photography(String pName, String pDiscription, String imagepath) {
+
+	public Photography(String photographyName, String photographyDescription, String imagepath) {
 		super();
-		this.pName = pName;
-		this.pDiscription = pDiscription;
+		this.photographyName = photographyName;
+		this.photographyDescription = photographyDescription;
 		this.imagepath = imagepath;
 	}
 
+	public String getPhotographyName() {
+		return photographyName;
+	}
 
-	public String getpName() {
-		return pName;
+	public void setPhotographyName(String photographyName) {
+		this.photographyName = photographyName;
 	}
-	public void setpName(String pName) {
-		this.pName = pName;
+
+	public String getPhotographyDescription() {
+		return photographyDescription;
 	}
-	public String getpDiscription() {
-		return pDiscription;
+
+	public void setPhotographyDescription(String photographyDescription) {
+		this.photographyDescription = photographyDescription;
 	}
-	public void setpDiscription(String pDiscription) {
-		this.pDiscription = pDiscription;
-	}
+
 	public String getImagepath() {
 		return imagepath;
 	}
+
 	public void setImagepath(String imagepath) {
 		this.imagepath = imagepath;
 	}
 	
-
 }

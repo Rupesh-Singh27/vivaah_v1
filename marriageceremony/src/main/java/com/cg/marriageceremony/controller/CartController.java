@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +16,6 @@ import com.cg.marriageceremony.dto.CartItemsData;
 import com.cg.marriageceremony.model.CartItems;
 import com.cg.marriageceremony.repository.CustomerRepository;
 import com.cg.marriageceremony.service.CartService;
-
-import io.swagger.annotations.ApiOperation;
 
 
 
@@ -33,14 +30,12 @@ public class CartController {
 	@Autowired
 	CustomerRepository custRepo;
 
-	@ApiOperation("Add item in cart")
 	@PostMapping("cart/addItemsInCart")
 	public CartItems addItemsInCart(@RequestBody CartItemsData cartData) {
 		CartItems cart = cartservice.addItemsInCart(cartData);
 		return cart;
 	}
 	
-	@ApiOperation("Get item from cart")
 	@GetMapping("cart/findAllItemsPresentInCart")
 	public List<CartItems> findAllItemsInCart(@PathVariable("cid") int custId){
 		List<CartItems> list = cartservice.findAllItemsInCart(custId);

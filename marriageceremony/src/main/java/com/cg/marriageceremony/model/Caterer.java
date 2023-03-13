@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Caterer extends Vendor {
 	
 	@NotBlank(message="Name cannot be left blank")
-	@Pattern(regexp = "^[a-zA-Z0-9\s]*$", message="Name should only contain alphabets")
+//	@Pattern(regexp = "^[a-zA-Z0-9\s]*$", message="Name should only contain alphabets")
 	@Length(min = 3, max = 20)
 	@Column(name = "caterer_name")
 	private String catererName;

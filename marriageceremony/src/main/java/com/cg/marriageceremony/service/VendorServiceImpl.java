@@ -75,9 +75,9 @@ public class VendorServiceImpl implements VendorService {
 		@Transactional
 		public int deleteVendor(int vendorId) {
 			
-			Optional<Vendor> vendor = vendorRepository.findById(vendorId);
+			Vendor vendor = vendorRepository.findById(vendorId).get();
 			
-			if(vendor.isEmpty()) {
+			if(vendor == null) {
 				throw new VendorDoesNotExistException("Vendor does not exist with the id " + vendorId);
 			
 			}

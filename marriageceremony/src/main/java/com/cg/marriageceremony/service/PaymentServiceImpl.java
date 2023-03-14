@@ -45,9 +45,9 @@ public class PaymentServiceImpl implements PaymentService {
 	public int deletePayment(int paymentId) {
 		try {
 		
-			Optional<Payment> caterer = paymentRepository.findById(paymentId);
+			Payment caterer = paymentRepository.findById(paymentId).get();
 			
-			if(caterer.isEmpty()) {
+			if(caterer == null) {
 				throw new PaymentDoesNotExistException("Payment does not exist with the id " + paymentId);
 			
 			}
